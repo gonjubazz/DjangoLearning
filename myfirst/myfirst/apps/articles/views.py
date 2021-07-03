@@ -15,3 +15,6 @@ def detail(request, article_id):
         raise Http404('Статья не найдена')
 
     return render(request, 'articles/detail.html', {'article': a})
+
+def leave_comment(request, article_id):
+    pass
