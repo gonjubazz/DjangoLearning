@@ -1,0 +1,28 @@
+body {
+    background: #dbc0c0;
+}
+.article_title {
+    font-size: xx-large;
+    font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    text-align: center;
+    color: #201d20;
+    size: auto;
+}
+.article_text {
+    background: #676767;
+    font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    color: #e0c2c2;
+    border-radius: 5px;
+    text-align: center;
+}
+.article_data {
+    position: relative;
+}
+.article_pub_date {
+    text-align: right;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    font-style: italic;
+    position: absolute;
+    right: 20px;
+    top: 40px;
+}

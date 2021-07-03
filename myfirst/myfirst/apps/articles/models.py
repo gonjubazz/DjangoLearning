@@ -17,7 +17,7 @@ class Article(models.Model):
 
     class Meta:
         verbose_name = 'Статья'
-        verbose_name_plural = 'Комментарии'
+        verbose_name_plural = 'Статьи'
 
 
 class Comment(models.Model):
@@ -27,3 +27,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.author_name
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'

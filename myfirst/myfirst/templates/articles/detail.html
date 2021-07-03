@@ -1,18 +1,35 @@
 {% extends 'base.html' %}
 
-{% block title %}{{article.article_title}}{% endblock %}
+
+{% block title %}{{ article.article_title }}{% endblock %}
 
 {% block content %}
-<h2>{{article.article_title}}</h2>
-<p>{{article.article_text}}</p>
-<em>{{article.pub_date}}</em>
+    <div class="article_data">
+        <h2 class="article_title">{{ article.article_title }}</h2>
+        <p class="article_text">{{ article.article_text }}</p>
+        <p class="article_pub_date">{{ article.pub_date }}</p>
+    <hr>
 
-<hr>
-<hr>
+    {% if latest_comments_list %}
+        {% for comment in latest_comments_list %}
+            <a>{{ comment.author_name }}:</a><br>
+            <pre>     {{ comment.comment_text }}</pre><br><br>
+        {% endfor %}
 
-<form action="{% url 'article:leave_comment' article.id %}" method="POST">
-    <input name="name" placeholder="Your name" required type="text"><br>
-    <textarea name="text" required="" placeholder="Comment text" cols="30" rows="10"></textarea><br>
+    {% else %}
+        <p class="article_comment_not_found">Комментарии не найдены :/</p>
+    {% endif %}
 
-</form>
+    <hr>
+    <hr>
+
+    <form action="{% url 'article:leave_comment' article.id %}" method="POST">
+
+        {% csrf_token %}
+
+        <input type="text" required placeholder="Твое имя" name="name"><br>
+        <textarea name="text" required="" placeholder="Текст" cols="30" rows="10"></textarea><br>
+        <button type="submit">Оставить комментарий</button>
+    </form>
+    </div>
 {% endblock %}
